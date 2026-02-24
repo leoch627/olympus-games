@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympus Games - H5 Prototype</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Olympus Games · H5 原型</h1>
+      <p>迷宫探索 + 骰子战斗（MVP）</p>
+    </header>
+
+    <section class="panel stats" id="stats"></section>
+
+    <section class="panel">
+      <div id="maze" class="maze"></div>
+      <div class="controls">
+        <button data-move="up">↑</button>
+        <div>
+          <button data-move="left">←</button>
+          <button data-move="down">↓</button>
+          <button data-move="right">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h3>战斗 / 事件日志</h3>
+      <div id="log" class="log"></div>
+      <button id="reset">重开</button>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

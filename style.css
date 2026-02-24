@@ -1,0 +1,16 @@
+body{margin:0;background:#0b1020;color:#e7edff;font-family:system-ui,-apple-system,Segoe UI,Roboto}
+.app{max-width:920px;margin:0 auto;padding:20px;display:grid;gap:14px}
+header h1{margin:0 0 6px}
+header p{margin:0;color:#9eb3ff}
+.panel{background:#131c39;border:1px solid #2d3d74;border-radius:12px;padding:14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:8px}
+.stat{background:#1a2750;padding:8px;border-radius:8px;font-size:14px}
+.maze{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.cell{aspect-ratio:1;border-radius:8px;background:#1f2d57;display:flex;align-items:center;justify-content:center;font-size:12px}
+.player{outline:3px solid #ffd166}
+.enemy{background:#5a2040}
+.knowledge{background:#1f5a52}
+.exit{background:#225073}
+.controls{margin-top:12px;display:flex;flex-direction:column;gap:8px;align-items:center}
+button{background:#3d64ff;color:#fff;border:none;border-radius:8px;padding:8px 10px;cursor:pointer}
+.log{height:180px;overflow:auto;background:#0d1530;border-radius:8px;padding:8px;font-size:13px;line-height:1.55}
