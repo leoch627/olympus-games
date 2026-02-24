@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Olympus Games H5 Demo</title>
+  <style>
+    body{margin:0;font-family:Inter,system-ui,Arial;background:#0b1020;color:#e9eefc}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+    .logo{font-size:28px;font-weight:800;letter-spacing:.4px}
+    .badge{background:#1e2a52;padding:8px 12px;border-radius:10px;font-size:13px}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:16px}
+    .card{background:#121a33;border:1px solid #2a3768;border-radius:14px;padding:14px}
+    .maze{height:420px;background:linear-gradient(135deg,#1a2344,#0f1630);border-radius:10px;position:relative;overflow:hidden}
+    .tile{position:absolute;width:58px;height:58px;border-radius:8px;background:#1f2d57;border:1px solid #32457e}
+    .player{position:absolute;width:46px;height:46px;border-radius:50%;background:#ffd166;left:24px;top:24px;box-shadow:0 0 25px #ffd16688}
+    .enemy{position:absolute;width:42px;height:42px;border-radius:10px;background:#ef476f;right:42px;top:58px}
+    .oracle{position:absolute;width:42px;height:42px;border-radius:10px;background:#06d6a0;right:120px;bottom:52px}
+    .exit{position:absolute;width:56px;height:56px;border-radius:10px;background:#118ab2;right:26px;bottom:24px}
+    .title{font-size:16px;font-weight:700;margin:0 0 8px}
+    .stat{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px}
+    .pill{background:#1a2447;padding:8px;border-radius:8px}
+    .battle{margin-top:12px;background:#0f1530;border:1px dashed #41569a;border-radius:10px;padding:10px}
+    .log{font-size:12px;line-height:1.6;color:#c7d3ff}
+    .btns{display:flex;gap:8px;margin-top:10px}
+    .btn{background:#3a63ff;border:none;color:white;padding:8px 10px;border-radius:8px;font-size:12px}
+    .btn.alt{background:#2a3768}
+    .footer{margin-top:12px;font-size:12px;color:#90a0d8}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div class="logo">Olympus Games · H5 Demo</div>
+    <div class="badge">迷宫探索 + 骰子战斗 + 神祇祝福</div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <p class="title">地图场景（MVP预览）</p>
+      <div class="maze">
+        <div class="tile" style="left:20px;top:20px"></div>
+        <div class="tile" style="left:90px;top:20px"></div>
+        <div class="tile" style="left:160px;top:20px"></div>
+        <div class="tile" style="left:230px;top:20px"></div>
+        <div class="tile" style="left:20px;top:90px"></div>
+        <div class="tile" style="left:90px;top:90px"></div>
+        <div class="tile" style="left:160px;top:90px"></div>
+        <div class="tile" style="left:230px;top:90px"></div>
+        <div class="tile" style="left:20px;top:160px"></div>
+        <div class="tile" style="left:90px;top:160px"></div>
+        <div class="tile" style="left:160px;top:160px"></div>
+        <div class="tile" style="left:230px;top:160px"></div>
+        <div class="tile" style="left:20px;top:230px"></div>
+        <div class="tile" style="left:90px;top:230px"></div>
+        <div class="tile" style="left:160px;top:230px"></div>
+        <div class="tile" style="left:230px;top:230px"></div>
+        <div class="tile" style="left:20px;top:300px"></div>
+        <div class="tile" style="left:90px;top:300px"></div>
+        <div class="tile" style="left:160px;top:300px"></div>
+        <div class="tile" style="left:230px;top:300px"></div>
+        <div class="player"></div>
+        <div class="enemy" title="怪物事件"></div>
+        <div class="oracle" title="知识事件"></div>
+        <div class="exit" title="出口"></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <p class="title">角色属性</p>
+        <div class="stat">
+          <div class="pill">力量 20</div><div class="pill">敏捷 25</div>
+          <div class="pill">体质 20</div><div class="pill">智慧 20</div>
+          <div class="pill">灵感 20</div><div class="pill">生命 100</div>
+        </div>
+        <div class="battle">
+          <p class="title" style="font-size:14px">百面骰战斗</p>
+          <div class="log">掷骰: 1d100 = 87</div>
+          <div class="log">结果: 直击要害 x2</div>
+          <div class="log">伤害: 34</div>
+          <div class="btns">
+            <button class="btn">攻击</button>
+            <button class="btn alt">诡诈</button>
+            <button class="btn alt">重掷</button>
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:12px">
+        <p class="title">MVP 功能点</p>
+        <div class="log">✓ 迷宫移动</div>
+        <div class="log">✓ 事件触发</div>
+        <div class="log">✓ 战斗结算</div>
+        <div class="log">✓ 神祇祝福(简版)</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Demo Mockup for olympus-games · 可用于需求评审展示</div>
+</div>
+</body>
+</html>
