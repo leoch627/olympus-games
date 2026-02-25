@@ -3,51 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Olympus Games - H5 Prototype</title>
+  <title>Olympus Games - Maze UI Prototype</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <div class="app">
-    <header>
-      <h1>Olympus Games · H5 原型</h1>
-      <p>迷宫探索 + 骰子战斗 + 神祇祝福（Phase 2）</p>
-    </header>
+  <div class="page">
+    <div class="topbar" id="topMeta">
+      <span>【第一层】</span>
+      <span>【名声0】</span>
+      <span>【设置】</span>
+      <span>【帮助】</span>
+    </div>
 
-    <section class="panel controls-top">
-      <label>选择神祇祝福
-        <select id="blessingSelect">
-          <option value="none">无（默认）</option>
-          <option value="Hermes">Hermes（敏捷+5 / 诡诈）</option>
-          <option value="Athena">Athena（智慧+5 / 弱点打击）</option>
-          <option value="Chaos">Chaos（全属性+2 / 骰子浮动）</option>
-          <option value="Apollo">Apollo（灵感+5 / 一次重掷）</option>
-          <option value="Dionysus">Dionysus（灵感+5 / 暴击增强）</option>
-          <option value="Hestia">Hestia（体质+5 / 休息加恢复）</option>
-          <option value="Artemis">Artemis（力量+5 / 对魔兽增伤）</option>
-        </select>
-      </label>
-      <button id="applyBlessing">应用祝福</button>
-      <button id="save">存档</button>
-      <button id="load">读档</button>
-      <button id="reset">重开</button>
-    </section>
-
-    <section class="panel stats" id="stats"></section>
-
-    <section class="panel">
-      <div id="maze" class="maze"></div>
-      <div class="controls">
-        <button data-move="up">↑</button>
-        <div>
-          <button data-move="left">←</button>
-          <button data-move="down">↓</button>
-          <button data-move="right">→</button>
+    <div class="layout">
+      <section class="maze-shell">
+        <div class="maze-greek-border">
+          <div id="maze" class="maze"></div>
         </div>
-      </div>
-    </section>
+        <div class="controls">
+          <button data-move="up">↑</button>
+          <div>
+            <button data-move="left">←</button>
+            <button data-move="down">↓</button>
+            <button data-move="right">→</button>
+          </div>
+        </div>
+      </section>
 
-    <section class="panel">
-      <h3>日志</h3>
+      <aside class="player-panel">
+        <div class="panel-greek-border">
+          <h2>玩家信息</h2>
+          <div id="playerInfo" class="player-info"></div>
+          <div id="quickActions" class="quick-actions"></div>
+        </div>
+
+        <div class="blessing-box">
+          <label>神祇祝福</label>
+          <select id="blessingSelect">
+            <option value="none">无（默认）</option>
+            <option value="Hermes">Hermes（敏捷+5 / 诡诈）</option>
+            <option value="Athena">Athena（智慧+5 / 弱点打击）</option>
+            <option value="Chaos">Chaos（全属性+2 / 骰子浮动）</option>
+            <option value="Apollo">Apollo（灵感+5 / 一次重掷）</option>
+            <option value="Dionysus">Dionysus（灵感+5 / 暴击增强）</option>
+            <option value="Hestia">Hestia（体质+5 / 休息加恢复）</option>
+            <option value="Artemis">Artemis（力量+5 / 对魔兽增伤）</option>
+          </select>
+          <button id="applyBlessing">应用祝福</button>
+          <div class="save-row">
+            <button id="save">存档</button>
+            <button id="load">读档</button>
+            <button id="reset">重开</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="log-wrap">
+      <h3>事件日志</h3>
       <div id="log" class="log"></div>
     </section>
   </div>

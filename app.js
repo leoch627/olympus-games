@@ -1,4 +1,4 @@
-const W = 8, H = 8;
+const W = 10, H = 10;
 const SAVE_KEY = 'olympus_games_save_v1';
 
 const QUESTIONS = [
@@ -18,7 +18,7 @@ const basePlayer = () => ({
 
 const state = {
   player: basePlayer(),
-  exit: { x: 7, y: 7 },
+  exit: { x: 9, y: 9 },
   events: new Map(),
   over: false,
   floor: 1,
@@ -36,7 +36,7 @@ function log(msg) {
 function initEvents() {
   state.events.clear();
   const pool = ['enemy', 'enemy', 'enemy', 'enemy', 'knowledge', 'knowledge', 'rest', 'shrine'];
-  for (let i = 0; i < 14; i++) {
+  for (let i = 0; i < 22; i++) {
     const x = roll(W) - 1, y = roll(H) - 1;
     if ((x === 0 && y === 0) || (x === state.exit.x && y === state.exit.y)) continue;
     if (state.events.has(key(x, y))) continue;
@@ -46,13 +46,27 @@ function initEvents() {
 
 function renderStats() {
   const p = state.player;
-  const el = document.getElementById('stats');
-  const items = [
-    ['楼层', state.floor], ['祝福', p.blessing], ['生命', p.hp], ['名声', p.fame],
-    ['力量', p.str], ['敏捷', p.agi], ['体质', p.con], ['智慧', p.wis], ['灵感', p.ins],
-    ['Apollo重掷', p.apolloReroll], ['位置', `${p.x + 1},${p.y + 1}`]
-  ];
-  el.innerHTML = items.map(([k, v]) => `<div class="stat">${k}: ${v}</div>`).join('');
+  const top = document.getElementById('topMeta');
+  const info = document.getElementById('playerInfo');
+  const quick = document.getElementById('quickActions');
+
+  top.innerHTML = `
+    <span>【第${state.floor}层】</span>
+    <span>【名声${p.fame}】</span>
+    <span>【设置】</span>
+    <span>【帮助】</span>
+  `;
+
+  info.textContent = [
+    `姓名：${p.name || 'xxxx'}`,
+    `[生命] ${p.hp}   [力量] ${p.str}`,
+    `[体质] ${p.con}   [敏捷] ${p.agi}`,
+    `[智慧] ${p.wis}   [灵感] ${p.ins}`,
+    `[位置] ${p.x + 1},${p.y + 1}`,
+    `[祝福] ${p.blessing}`,
+  ].join('\n');
+
+  quick.textContent = '【装备】【背包】【神谕】';
 }
 
 function renderMaze() {
@@ -294,7 +308,7 @@ function boot() {
   state.player = basePlayer();
   state.floor = 1;
   state.over = false;
-  state.exit = { x: 7, y: 7 };
+  state.exit = { x: 9, y: 9 };
   initEvents();
   document.getElementById('log').innerHTML = '';
   log('游戏开始：移动到出口，触发事件并成长');
